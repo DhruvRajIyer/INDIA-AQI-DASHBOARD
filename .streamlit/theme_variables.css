@@ -1,0 +1,26 @@
+:root {
+    /* Core colors */
+    --primary: #7C3AED;
+    --primary-hover: #8B5CF6;
+    --background-primary: #0F172A;
+    --background-secondary: #1E293B;
+    --background-tertiary: #334155;
+    
+    /* Text colors */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    
+    /* Accent colors for data viz */
+    --accent-success: #10B981;
+    --accent-warning: #F59E0B;
+    --accent-danger: #EF4444;
+    
+    /* Interactive elements */
+    --hover-overlay: rgba(255, 255, 255, 0.1);
+    --border-color: #334155;
+    
+    /* Chart colors */
+    --chart-grid: rgba(148, 163, 184, 0.2);
+    --chart-line: #7C3AED;
+  }
