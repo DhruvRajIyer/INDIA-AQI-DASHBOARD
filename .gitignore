@@ -172,3 +172,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+ src/__pycache__/data_loader.cpython-37.pyc
