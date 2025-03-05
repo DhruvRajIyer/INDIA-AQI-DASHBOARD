@@ -3,6 +3,8 @@ import pandas as pd
 import streamlit as st
 import logging
 from typing import Optional
+import os
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -27,10 +29,23 @@ def calculate_aqi(pm25: float) -> float:
 
 @st.cache_data(ttl=3600)
 def load_data() -> Optional[pd.DataFrame]:
+    """Load and preprocess data with enhanced validation"""
     try:
-        # Get current file's directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        data_path = os.path.join(current_dir, '..', 'data', 'all_cities_aqi_combined.csv')
+        # Get the absolute path to the data file
+        root_dir = Path(__file__).parent.parent
+        data_path = os.path.join(root_dir, 'data', 'all_cities_aqi_combined.csv')
+        
+        # Add debug information
+        st.write(f"Current working directory: {os.getcwd()}")
+        st.write(f"Attempting to load from: {data_path}")
+        st.write(f"File exists: {os.path.exists(data_path)}")
+        
+        if not os.path.exists(data_path):
+            # Try relative path as fallback
+            data_path = 'data/all_cities_aqi_combined.csv'
+            if not os.path.exists(data_path):
+                raise FileNotFoundError(f"Data file not found in either location")
+        
         df = pd.read_csv(data_path, parse_dates=['Timestamp'])
         
         # Validation
@@ -55,7 +70,7 @@ def load_data() -> Optional[pd.DataFrame]:
                    'Unhealthy', 'Very Unhealthy', 'Hazardous']
         )
         
-        # Add time componentsr
+        # Add time components
         df['Day'] = df['Timestamp'].dt.day_name()
         df['Month'] = df['Timestamp'].dt.month
         df['Year'] = df['Timestamp'].dt.year
@@ -67,4 +82,5 @@ def load_data() -> Optional[pd.DataFrame]:
         
     except Exception as e:
         logger.error(f"Data loading error: {str(e)}")
+        st.error(f"Error loading data: {str(e)}")
         return None
