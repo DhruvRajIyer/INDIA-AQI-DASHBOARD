@@ -32,23 +32,16 @@ def load_data() -> Optional[pd.DataFrame]:
     """Load and preprocess data with enhanced validation"""
     try:
         # Get the absolute path to the data file
-        root_dir = Path(__file__).parent.parent
-        data_path = os.path.join(root_dir, 'data', 'all_cities_aqi_combined.csv')
+        data_path = 'data/all_cities_aqi_combined.csv'
         
-        # Add debug information
-        st.write(f"Current working directory: {os.getcwd()}")
-        st.write(f"Attempting to load from: {data_path}")
-        st.write(f"File exists: {os.path.exists(data_path)}")
+        # Modified read_csv with explicit date parsing
+        df = pd.read_csv(
+            data_path,
+            parse_dates=['Timestamp'],
+            dayfirst=True  # This tells pandas that dates are in dd-mm-yyyy format
+        )
         
-        if not os.path.exists(data_path):
-            # Try relative path as fallback
-            data_path = 'data/all_cities_aqi_combined.csv'
-            if not os.path.exists(data_path):
-                raise FileNotFoundError(f"Data file not found in either location")
-        
-        df = pd.read_csv(data_path, parse_dates=['Timestamp'])
-        
-        # Validation
+        # Rest of your validation and processing code...
         required_columns = ['PM2.5', 'PM10', 'NO2', 'SO2', 'CO', 'City', 'Timestamp']
         missing_columns = [col for col in required_columns if col not in df.columns]
         
@@ -59,10 +52,9 @@ def load_data() -> Optional[pd.DataFrame]:
         df['Timestamp'] = pd.to_datetime(df['Timestamp']).dt.tz_localize(None)
         df = df.dropna(subset=['PM2.5'])
         
-        # Calculate AQI
+        # Calculate AQI and other processing...
         df['AQI'] = df['PM2.5'].apply(calculate_aqi)
         
-        # Add health risk categories
         df['Risk_Category'] = pd.cut(
             df['AQI'],
             bins=[0, 50, 100, 150, 200, 300, 500],
@@ -70,7 +62,6 @@ def load_data() -> Optional[pd.DataFrame]:
                    'Unhealthy', 'Very Unhealthy', 'Hazardous']
         )
         
-        # Add time components
         df['Day'] = df['Timestamp'].dt.day_name()
         df['Month'] = df['Timestamp'].dt.month
         df['Year'] = df['Timestamp'].dt.year
@@ -84,3 +75,4 @@ def load_data() -> Optional[pd.DataFrame]:
         logger.error(f"Data loading error: {str(e)}")
         st.error(f"Error loading data: {str(e)}")
         return None
+
