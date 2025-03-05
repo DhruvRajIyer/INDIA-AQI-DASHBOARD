@@ -13,6 +13,8 @@ logging.basicConfig(level=logging.INFO)
 # app.py
 
 def main():
+    
+
     st.set_page_config(
         page_title="Enhanced Air Quality Analytics",
         layout="wide",
@@ -34,6 +36,22 @@ def main():
         options=sorted(df['City'].unique()),
         default=sorted(df['City'].unique())[:3]
     )
+
+    st.markdown("""
+    <style>
+    @import url('/.streamlit/custom_theme.css');
+    </style>
+    """, unsafe_allow_html=True)
+
+    def toggle_theme():
+        current_bg = st.get_option("theme.backgroundColor")
+        new_theme = "dark" if current_bg == "#FFFFFF" else "light"
+        st.experimental_set_query_params(theme=new_theme)
+        st.experimental_rerun()
+
+    # Add button to sidebar
+    with st.sidebar:
+        st.button("Toggle Theme", on_click=toggle_theme)
     
     # Set min and max dates from data
     min_date = df['Timestamp'].min().date()
@@ -89,8 +107,6 @@ def main():
         create_map(filtered_df)
     with tab4:
         show_health_risk_assessment(filtered_df)
-
-  
 
 
 

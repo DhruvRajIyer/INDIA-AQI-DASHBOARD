@@ -1,13 +1,13 @@
 [server]
+enableXsrfProtection = true
 enableCORS = false
-enableXsrfProtection = false
 
 [browser]
 gatherUsageStats = false
 
 [theme]
-primaryColor = "#F63366"      
-backgroundColor = "#0F172A"   
-secondaryBackgroundColor = "#1E293B"  
+primaryColor = "#7C3AED"
+backgroundColor = "#0F172A"
+secondaryBackgroundColor = "#1E293B"
 textColor = "#F8FAFC"
-font = "sans serif"
+font = "Inter"
