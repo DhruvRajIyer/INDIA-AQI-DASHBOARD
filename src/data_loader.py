@@ -27,9 +27,11 @@ def calculate_aqi(pm25: float) -> float:
 
 @st.cache_data(ttl=3600)
 def load_data() -> Optional[pd.DataFrame]:
-    """Load and preprocess data with enhanced validation"""
     try:
-        df = pd.read_csv('data/all_cities_aqi_combined.csv', parse_dates=['Timestamp'])
+        # Get current file's directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        data_path = os.path.join(current_dir, '..', 'data', 'all_cities_aqi_combined.csv')
+        df = pd.read_csv(data_path, parse_dates=['Timestamp'])
         
         # Validation
         required_columns = ['PM2.5', 'PM10', 'NO2', 'SO2', 'CO', 'City', 'Timestamp']
