@@ -13,13 +13,38 @@ logging.basicConfig(level=logging.INFO)
 # app.py
 
 def main():
-    
-
     st.set_page_config(
         page_title="Enhanced Air Quality Analytics",
         layout="wide",
         page_icon="🌫️"
     )
+    
+    # Basic dark theme CSS
+    st.markdown("""
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+        
+        /* Basic dark theme */
+        .stApp {
+            background-color: #0F172A;
+        }
+        
+        .stSidebar {
+            background-color: #1E293B;
+        }
+        
+        /* Text colors */
+        .stMarkdown, .stHeader {
+            color: #F8FAFC;
+        }
+        
+        /* Buttons */
+        .stButton button {
+            background-color: #334155;
+            color: #F8FAFC;
+        }
+        </style>
+        """, unsafe_allow_html=True)
     
     st.title("🌍 Air Quality Analytics Dashboard")
     
@@ -31,27 +56,13 @@ def main():
         
     # Sidebar filters
     st.sidebar.header("Filters")
+    
+    # City selection
     selected_cities = st.sidebar.multiselect(
         "Select Cities",
         options=sorted(df['City'].unique()),
         default=sorted(df['City'].unique())[:3]
     )
-
-    st.markdown("""
-    <style>
-    @import url('/.streamlit/custom_theme.css');
-    </style>
-    """, unsafe_allow_html=True)
-
-    def toggle_theme():
-        current_bg = st.get_option("theme.backgroundColor")
-        new_theme = "dark" if current_bg == "#FFFFFF" else "light"
-        st.experimental_set_query_params(theme=new_theme)
-        st.experimental_rerun()
-
-    # Add button to sidebar
-    with st.sidebar:
-        st.button("Toggle Theme", on_click=toggle_theme)
     
     # Set min and max dates from data
     min_date = df['Timestamp'].min().date()
@@ -91,10 +102,11 @@ def main():
     
     # Tabs for different analyses
     tab1, tab2, tab3, tab4 = st.tabs([
-    "Temporal Analysis", 
-    "Correlation Analysis",
-    "Geographic Visualization",
-    "Health Risk Assessment"])
+        "Temporal Analysis", 
+        "Correlation Analysis",
+        "Geographic Visualization",
+        "Health Risk Assessment"
+    ])
     
     with tab1:
         show_temporal_analysis(filtered_df)
@@ -107,8 +119,6 @@ def main():
         create_map(filtered_df)
     with tab4:
         show_health_risk_assessment(filtered_df)
-
-
 
 if __name__ == "__main__":
     main()

@@ -1,87 +1,44 @@
-/* Global Styles */
-.stApp {
+/* Base styles */
+* {
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  /* Theme-aware styling */
+  .stApp {
     background-color: var(--background-primary);
   }
   
-  /* Typography */
-  .stMarkdown h1 {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.5rem;
-  }
-  
-  /* Sidebar Styling */
-  .css-1d391kg {  /* Sidebar */
+  .stSidebar {
     background-color: var(--background-secondary);
-    border-right: 1px solid var(--border-color);
   }
   
-  /* Widgets */
-  .stSelectbox > div > div {
-    background-color: var(--background-secondary) !important;
-    border-color: var(--border-color) !important;
-  }
-  
+  /* Widget styling */
+  .stSelectbox > div > div,
   .stMultiSelect > div > div {
     background-color: var(--background-secondary) !important;
-    border-color: var(--border-color) !important;
   }
   
   /* DataFrames */
   .stDataFrame {
     background: var(--background-secondary) !important;
-    border: 1px solid var(--border-color) !important;
+    color: var(--text-color) !important;
   }
   
-  .stDataFrame table {
-    color: var(--text-primary) !important;
-  }
-  
-  .stDataFrame th {
-    background-color: var(--background-tertiary) !important;
-    color: var(--text-primary) !important;
-  }
-  
-  /* Charts */
-  .vega-embed {
-    background: var(--background-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 1rem;
-  }
-  
-  .vega-embed .marks path {
-    stroke: var(--chart-grid) !important;
+  /* Text elements */
+  .stMarkdown {
+    color: var(--text-color);
   }
   
   /* Buttons */
   .stButton > button {
-    background-color: var(--primary) !important;
-    color: var(--text-primary) !important;
+    background-color: #7C3AED !important;
+    color: white !important;
     border: none !important;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
   }
   
   .stButton > button:hover {
-    background-color: var(--primary-hover) !important;
-  }
-  
-  /* Metrics */
-  .stMetric {
-    background-color: var(--background-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 1rem;
-  }
-  
-  /* Progress bars */
-  .stProgress > div > div > div {
-    background-color: var(--primary) !important;
-  }
-  
-  /* Tooltips */
-  .tooltip {
-    background-color: var(--background-tertiary) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-primary) !important;
+    background-color: #8B5CF6 !important;
+    transform: translateY(-1px);
   }
