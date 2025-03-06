@@ -6,7 +6,7 @@
 A Streamlit-powered web application providing real-time air quality insights across Indian cities. Combines data processing, interactive visualization, and cloud deployment using Python.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://airsuraksha-aqi-dashboard.streamlit.app/)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/AirSuraksha?style=social)](https://github.com/yourusername/AirSuraksha)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/AirSuraksha?style=social)](https://github.com/yourusername/INDIA-AQI-DASHBOARD)
 
 ## 📚 Table of Contents
 - [Project Overview](#-project-overview)
