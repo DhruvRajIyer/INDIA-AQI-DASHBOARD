@@ -1,11 +1,22 @@
-Project Overview
+AirSuraksha: Real-time Air Quality Dashboard
+AirSuraksha is a Streamlit-based web application that provides real-time insights into air quality across various Indian cities. This project demonstrates my skills in data processing, interactive visualization, and cloud deployment—all using Python.
 
+Table of Contents
+Project Overview
+Key Features
+Technical Implementation
+Technology Stack
+Installation & Local Setup
+User Guide
+Data Sources
+Deployment
+Future Enhancements
+Conclusion
+Links
+Project Overview
 AirSuraksha is designed to increase public awareness by presenting complex air quality data through interactive charts and comparative analyses. The application targets not only general users but also researchers and policymakers looking to better understand pollution trends. This project reflects my ability to integrate data science with web development and cloud technologies.
 
-https://airsuraksha-aqi-dashboard.streamlit.app/
-
 Key Features
-
 Interactive Visualizations:
 Explore air quality data through dynamic charts and graphs to gain insights into pollution trends over time.
 
@@ -18,7 +29,6 @@ Observe how air quality fluctuates over specific periods—daily, monthly, or an
 Correlation with Meteorological Data:
 Analyze how factors like temperature and humidity influence pollution levels, providing a deeper understanding of environmental impacts.
 
---------------------------------------------------------------------------------------------
 Technical Implementation
 Framework:
 Built with Streamlit, which enabled rapid development and deployment of a responsive web interface.
@@ -39,7 +49,6 @@ Data Processing: Pandas, NumPy
 Visualization: Matplotlib/Plotly/Altair
 Deployment: Streamlit Cloud
 Version Control: Git & GitHub
---------------------------------------------------------------------------------------------
 Installation & Local Setup
 To run AirSuraksha locally, follow these steps:
 
@@ -71,7 +80,6 @@ Edit
 streamlit run app.py
 This setup ensures that you can further develop and test the application locally before deployment.
 
---------------------------------------------------------------------------------------------
 User Guide
 Accessing the App:
 Open the web application using the URL provided in the Links section or run it locally.
@@ -106,9 +114,14 @@ Improve responsiveness for better performance on mobile devices.
 
 API Integration:
 Integrate additional data sources and APIs to provide real-time updates and expanded insights.
---------------------------------------------------------------------------------------------
+
 Conclusion
 AirSuraksha serves as a comprehensive tool for monitoring air quality in India. It not only addresses environmental concerns but also showcases my technical skills in data science, web development, and cloud deployment. I believe this project is a strong representation of my ability to solve complex problems and deliver user-friendly applications.
+
+Links
+AirSuraksha Web Application: https://airsuraksha-aqi-dashboard.streamlit.app/
+Kaggle Dataset: https://www.kaggle.com/datasets/rajanbhateja/indian-cities-aqi-2020-2024/data
+GitHub Repository: https://github.com/yourusername/AirSuraksha
 
 Links
 AirSuraksha Web Application: https://airsuraksha-aqi-dashboard.streamlit.app/
