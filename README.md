@@ -3,10 +3,8 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-A Streamlit-powered web application providing real-time air quality insights across Indian cities. Combines data processing, interactive visualization, and cloud deployment using Python.
-
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://airsuraksha-aqi-dashboard.streamlit.app/)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/AirSuraksha?style=social)](https://github.com/yourusername/INDIA-AQI-DASHBOARD)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/INDIA-AQI-DASHBOARD?style=social)](https://github.com/yourusername/INDIA-AQI-DASHBOARD)
 
 ## 📚 Table of Contents
 - [Project Overview](#-project-overview)
@@ -55,8 +53,8 @@ Python 3.10+
 ## 💻 Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/AirSuraksha.git
-cd AirSuraksha
+git clone https://github.com/yourusername/INDIA-AQI-DASHBOARD.git
+cd INDIA-AQI-DASHBOARD
 
 # Create virtual environment
 python -m venv venv
@@ -111,4 +109,4 @@ MIT License - See [LICENSE](LICENSE) for details.
 **Connect with the Project**  
 [🌐 Live Demo](https://airsuraksha-aqi-dashboard.streamlit.app) | 
 [📁 Dataset](https://www.kaggle.com/datasets/rajanbhateja/indian-cities-aqi-2020-2024) | 
-[💻 GitHub Repo](https://github.com/yourusername/AirSuraksha)
+[💻 GitHub Repo](https://github.com/yourusername/INDIA-AQI-DASHBOARD)
